@@ -1,0 +1,13 @@
+.logo {
+    font-family: 'Arial', sans-serif;
+    font-size: 36px;
+    font-weight: bold;
+    color: #ff4081; 
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.logo:hover {
+    color: #d9363e;
+}

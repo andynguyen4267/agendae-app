@@ -1,0 +1,35 @@
+.login-container {
+    position: relative;
+}
+
+.logo-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 1rem;
+}
+
+.custom-bg {
+    background: linear-gradient(45deg, #6200ea, #ff4081);
+}
+
+.alert {
+    padding: 1rem;
+    margin-top: 1rem;
+    color: #721c24;
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    border-radius: 0.25rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+.alert-icon {
+    margin-right: 0.5rem;
+    vertical-align: middle;
+}
+
+.alert-text {
+    display: inline-block;
+    vertical-align: middle;
+}

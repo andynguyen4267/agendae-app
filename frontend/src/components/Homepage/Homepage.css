@@ -1,0 +1,28 @@
+.homepage-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background: linear-gradient(45deg, #6200ea, #ff4081);
+    color: white;
+    text-align: center;
+}
+
+.full-screen-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+}
+
+
+.homepage-container h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.homepage-container p {
+    font-size: 24px;
+    max-width: 600px;
+}
