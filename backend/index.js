@@ -49,8 +49,9 @@ const sendVerificationEmail = (user, req, res) => {
 };
 
 app.get('/', function (req, res) {
-    res.render('index', {});
-  });
+    res.send('hello');
+})
+
 
 app.post("/login", (req, res) => {
     const { email, password } = req.body;
@@ -151,6 +152,6 @@ app.delete('/todos/:id', (req, res) => {
 
 const PORT = process.env.PORT || 3001;
 
-app.listen(PORT, () => {
+app.listen(PORT, '0.0.0.0', () => {
     console.log(`Server is running on port ${PORT}`);
 });
