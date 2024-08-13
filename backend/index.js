@@ -48,7 +48,10 @@ const sendVerificationEmail = (user, req, res) => {
         });
 };
 
-
+app.get('/', function (req, res) {
+    res.render('index', {});
+  });
+  
 app.post("/login", (req, res) => {
     const { email, password } = req.body;
     UserModel.findOne({ email: email })
@@ -146,6 +149,8 @@ app.delete('/todos/:id', (req, res) => {
         .catch(err => res.json(err));
 });
 
-app.listen(3001, () => {
+const PORT = process.env.PORT || 3001;
+
+app.listen(PORT, () => {
     console.log("Server is running on port 3001");
 });
