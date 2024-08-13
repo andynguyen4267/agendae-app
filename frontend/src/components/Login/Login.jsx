@@ -12,9 +12,11 @@ function Login() {
     const navigate = useNavigate();
     const [errorMessage, setErrorMessage] = useState('');
 
+    const API_URL = process.env.VITE_API_URL || 'http://localhost:3001';
+
     const handleSubmit = (e) => {
         e.preventDefault();
-        axios.post('http://localhost:3001/login', { email, password })
+        axios.post(`${API_URL}/login`, { email, password })
             .then(result => {
                 console.log(result);
                 if (result.data.status === "Success") {

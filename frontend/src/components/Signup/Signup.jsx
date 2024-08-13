@@ -36,8 +36,8 @@ function Signup () {
             setErrorMessage('Please enter a password');
             return;
         }
-
-        axios.post('http://localhost:3001/register', { name, email, password })
+        const API_URL = process.env.VITE_API_URL || 'http://localhost:3001';
+        axios.post(`${API_URL}/register`, { name, email, password })
         .then(result => {
             console.log("API response:", result.data.status); // Log the entire response
             if (result.data && result.data.status === "Success") {
