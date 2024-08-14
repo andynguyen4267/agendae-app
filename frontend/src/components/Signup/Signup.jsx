@@ -40,7 +40,7 @@ function Signup () {
         axios.post(`${API_URL}/register`, { name, email, password })
         .then(result => {
             console.log(API_URL);
-            console.log("API response:", API_URL); // Log the entire response
+            console.log("API response:", result.data.status); // Log the entire response
             if (result.data && result.data.status === "Success") {
                 setSuccessMessage('Registration successful! Please check your email to verify your account.');
             } else {
