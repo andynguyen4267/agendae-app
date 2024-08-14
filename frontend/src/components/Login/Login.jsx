@@ -12,13 +12,13 @@ function Login() {
     const navigate = useNavigate();
     const [errorMessage, setErrorMessage] = useState('');
 
-    const API_URL = process.env.VITE_API_URL || 'http://localhost:3001';
+    const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3001';
 
     const handleSubmit = (e) => {
         e.preventDefault();
         axios.post(`${API_URL}/login`, { email, password })
             .then(result => {
-                console.log(result);
+                console.log("test:", result);
                 if (result.data.status === "Success") {
                     localStorage.setItem('userId', result.data.userId);
                     navigate('/todos');
@@ -28,7 +28,7 @@ function Login() {
                     setErrorMessage("Invalid email or password.")
                 }
             })
-            .catch(err => console.log(err));
+            .catch(err => console.log("test", err));
     };
 
     return (

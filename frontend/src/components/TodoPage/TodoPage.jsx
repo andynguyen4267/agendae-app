@@ -12,11 +12,12 @@ function TodoPage() {
     const navigate = useNavigate();
 
     const user = localStorage.getItem('userId');
+    const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3001';
 
     useEffect(() => {
         const fetchTasks = async () => {
             try {
-                const response = await axios.get(`http://localhost:3001/todos/${user}`);
+                const response = await axios.get(`${API_URL}/todos/${user}`);
                 console.log(response.data);
                 if (Array.isArray(response.data)) {
                     setTasks(response.data);
@@ -37,7 +38,8 @@ function TodoPage() {
 
     const addTask = async (newTask) => {
         try {
-            const response = await axios.post('http://localhost:3001/todos', { userId: user, task: newTask });
+            const response = await axios.post(`${API_URL}/todos`, { userId: user, task: newTask });
+
             setTasks([...tasks, response.data]);
         } catch (error) {
             console.error("Error adding task:", error);
@@ -46,7 +48,7 @@ function TodoPage() {
 
     const deleteTask = async (id) => {
         try {
-            await axios.delete(`http://localhost:3001/todos/${id}`);
+            await axios.delete(`${API_URL}/todos/${id}`);
             setTasks(tasks.filter((task) => task._id !== id));
         } catch (error) {
             console.error("Error deleting task:", error);
@@ -57,7 +59,7 @@ function TodoPage() {
         try {
             const taskToComplete = tasks.find(task => task._id === id);
             const updatedTask = { ...taskToComplete, completed: !taskToComplete.completed };
-            const response = await axios.put(`http://localhost:3001/todos/${id}`, updatedTask);
+            const response = await axios.put(`${API_URL}/todos/${id}`, updatedTask);
             setTasks(tasks.map((task) => (task._id === id ? response.data : task)));
         } catch (error) {
             console.error("Error updating task:", error);
